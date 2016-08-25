@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <seller module="seller">
+            <title>Seller</title>
+            <sort_order>31</sort_order>
+            <children>
+                
+                <selleradd module="seller">
+                    <title>Add Seller Details</title>
+                    <action>seller/adminhtml_selleradd</action>
+                </selleradd>
+                <sellerdetails module="seller">
+                    <title>View Seller Details</title>
+                    <action>seller/adminhtml_seller</action>
+                </sellerdetails>
+            </children>
+        </seller>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <seller translate="label" module="seller">
+                        <title>Manage Seller</title>
+                        <sort_order>1000</sort_order>
+                        <children>
+                            
+                            <selleradd module="seller">
+                                <title>Add Seller</title>
+                                <sort_order>1</sort_order>
+                            </selleradd>
+                            <sellerdetails module="seller">
+                                <title>View Seller</title>
+                                <sort_order>2</sort_order>                                
+                            </sellerdetails>
+                        </children>
+                    </seller>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <seller translate="label" module="seller">
+                                        <title>Manage Seller</title>
+                                    </seller>
+                                </children>
+                            </config>
+                        </children>
+                    </system>                    
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

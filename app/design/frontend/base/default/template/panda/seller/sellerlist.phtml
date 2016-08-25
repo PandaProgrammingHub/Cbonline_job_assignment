@@ -1,0 +1,55 @@
+<?php
+$collections = Mage::getModel('seller/sellerdetails')->getCollection();
+$media = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+?>
+
+
+<h2>Seller Detaisl List</h2>
+
+<table>
+  <tr>
+    <th>#SI.NO</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Image</th>
+    <th>Mobile</th>
+ </tr>
+ <?php
+ 	$cnt=1;
+ 	foreach ($collections as $collection) { ?>
+ 	<tr>
+    <td><?php echo $cnt; ?></td>
+    <td><?php echo $collection->name; ?></td>
+    <td><?php echo $collection->email; ?></td>
+    <td><?php echo $collection->address; ?></td>
+    <td><img src="<?php echo $media.$collection->image; ?>" style="width:200px;height:130px;" alt="Seller Image"></td>
+    <td><?php echo $collection->mobile; ?></td>
+    
+  </tr>
+ 	<?php $cnt++; } ?>
+
+</table>
+
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+td{
+	width: 200px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+
